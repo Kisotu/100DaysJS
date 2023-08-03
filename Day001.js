@@ -27,3 +27,14 @@ console.log(sum(3,4));
 const squared = (number) => number * number;
 
 console.log(squared(4));
+
+// javascript string methods. touppercase, tolowercase, length, concatanation, split etc
+
+let name1 = "Bazokizo"
+
+console.log(name1.toUpperCase())
+console.log(name1.toLowerCase())
+
+console.log(name1.length)
+
+
