@@ -22,3 +22,8 @@ console.log(books[2])
 
 books[1] = "Data Structures and Algorithms"
 console.log(books)
+
+
+const colors = ["blue", "red", "green", "black", "orange", "cyan"]
+
+console.log(colors.length)
