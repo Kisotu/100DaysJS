@@ -53,4 +53,82 @@ console.log(student.language) //doesnt delete
 
 
 
-// Object.prototype => 
+// Object.prototype => every object has a prototype. 
+// It  is an object that contains other built-in properties and methods you can use on the main object
+
+
+// Object.getPrototypeof(student) => to get properties of any object.
+
+// Object Methods.
+
+//Object.keys() => returns an array of a given object’s enumerable property names.
+
+console.log(Object.keys(student));
+
+// Object.values() => returns an array of a given object’s enumerable property values
+
+console.log(Object.values(student));
+
+// Object.entries() => returns an array of a given object’s enumerable property [key, value] pairs:
+
+console.log(Object.entries(student))
+
+
+// Object.assign() => copies all enumerable own properties from one or more source objects to target object.
+
+const person = {
+    name: "Kale",
+    height: 23,
+    race: "Black",
+    balance: 234.50,
+}
+
+const newperson = Object.assign({}, student, person);
+
+console.log(newperson);
+
+
+// Object.freeze() => freezes an object so it cant be modified.
+
+Object.freeze(newperson);
+
+newperson.firstName = "Nishoyo";
+
+console.log(newperson.firstName); //not modified
+
+
+// Object.seal() => marks all existing properties as non-configurable and no new properties can be added.
+
+Object.seal(student);
+
+student.canVote = true;
+
+console.log(student.canVote); // cant be added. 
+
+
+
+// OBJECT DESTRUCTURING => a feature in JavaScript that allows you to unpack values from objects into distinct variables. 
+// It's a convenient way to extract properties from objects without having to create separate variables for each property. 
+
+const attendee = {
+    familyName : "Muchai",
+    age: 45,
+    gender: "M",
+    ticketStatus :"paid",
+}
+
+const { age, familyName, gender, ticketStatus } = attendee;
+
+console.log(familyName)
+console.log(gender)
+console.log(ticketStatus);
+
+
+
+// array destructuring => works same by unpacking array values to individual variables.
+
+const genders = ["Male", "Female"];
+
+const [a,b] = genders;
+
+console.log(b)
