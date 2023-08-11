@@ -95,3 +95,64 @@ for (let i= 1; i<=10; i++){
     sum+=i;
 }
 console.log(sum)
+
+
+
+//** */ ternary operator: condition ? expression1 : expression2   not a loop
+
+const age = 18;
+
+age > 21 ? console.log("Acccess Allowed") : console.log("Access Denied!")
+
+// for... in... => used to iterate over an object's enumerable properties.
+
+const person = {
+    name : "Mayiolo",
+    age: 12,
+    city: "Nairobi",
+}
+
+for(let prop in person){
+    console.log(`${prop} : ${person[prop]}`)
+}
+
+
+// the "in" operator checks if a specified element exists in an object, array.
+
+
+if("age" in person){
+    console.log("age exists")
+}
+else{
+    console.log("does not exist")
+}
+
+
+// for.. in.. iterates over an array's indexes.
+
+let colors = ["blue", "red", "yellow", "black"];
+
+for(let index in colors){
+    console.log(colors[index])
+    console.log(index)// prints indexes
+}
+
+
+
+// for..of.. => iterates over the values of an array rather than the indexes.
+
+
+for( let val in colors){
+    console.log(colors[val]) // prints the vallues
+}
+
+
+// can also iterate over the characters of a string
+
+let firstName = "Nairobi";
+
+for(let character of firstName){
+    console.log(character)
+}
+
+
