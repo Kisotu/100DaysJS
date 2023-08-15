@@ -62,8 +62,8 @@ const getStyle = document.querySelector('#dom-definition').style
 // returns a CSSStyleDeclaration Object. Each style property is represented in camelCase.
 
 
-const bColor = document.querySelector('#dom-definition').style['backgroundColor'] = 'brown'
-console.log(bColor);
+const bColor = document.querySelector('#dom-definition').style['backgroundColor'] = 'cyan'
+// console.log(bColor);
 
 
 document.querySelector('#dom-definition').id = 'new-dom-definition'
@@ -74,4 +74,108 @@ document.querySelector('#new-dom-definition').setAttribute('id','dom-definition'
 
 //style's setProperty
 
-document.querySelector('div.paragraph').style.setProperty('font-size', '28px')
+document.querySelector('div.paragraph').style.setProperty('font-size', '28px')//takes two arrgs, the prop and its value
+
+// innerHTML prop returns the HTML content of an element in string form.
+
+// console.log(document.body.innerHTML); 
+
+//innerHTML also modifies the HTML content of an element.
+document.body.innerHTML += '<p>Added using the innerHTML property!</p>';
+
+
+
+
+
+//Creating DOM Elements
+//createElement() => returns a new element with the specified tag name but doesnt add to the dom.
+
+// appendChild() => takes an element as arrg and adds it to the DOM.
+
+let newButton = document.createElement('button');
+
+newButton.textContent = 'New button';
+
+newButton.setAttribute('id', 'new-bnt');
+
+//add to the DOM
+
+document.body.appendChild(newButton);
+
+
+//insertBefore() adds a new element before a specified element.
+let newHeading = document.createElement('h2')
+newHeading.textContent = 'Working with the Dom';
+
+document.body.insertBefore(newHeading, document.querySelector('#dom-definition'))
+
+
+//replaceChild() => replaces an element with new element.
+let newParagraph = document.createElement('p')
+newParagraph.setAttribute('class', 'p-class')
+newParagraph.textContent = 'Replaced another paragraph using replaceChild()';
+
+document.body.replaceChild(newParagraph, document.querySelector('#dom-example'))
+
+
+//insertAdjacentHTML() => inserts HTML content ta specified position relative to the element on whuch it is called. takes two arrgs, the position and the HTML content;
+// positions:
+
+// • beforebegin: Before the element itself.
+// • afterbegin: Just inside the element, before its first child.
+// • beforeend: Just inside the element, after its last child.
+// • afterend: After the element itself.
+
+
+document
+    .querySelector('.p-class')
+    .insertAdjacentHTML(
+        'beforebegin',
+        '<p>The Dom is easy to work with: added with beforebegin insertAdjacentHTML</p>'
+)
+
+
+//insertAdjacentElement()=> adds new element. Take an element as its second arrg instead of HTML content.
+
+let newP = document.createElement('p')
+newP.textContent = 'This is a new Paragraph added using insertAdjacentElement';
+
+document
+    .querySelector('#button')
+    .insertAdjacentElement('afterend', newP);
+
+
+
+// insertAdjacentText() => inserts text at a specified position rlative to the element which it is called.
+
+document.body.insertAdjacentText(
+    'beforeend',
+    ' JavaScript is for everyone'
+);
+
+
+//cloneNode() => returns a copy of the elment on which it is called. takes a boolean arrg that determines whether the copy will incliude the elem's children.
+
+let y = document.querySelector('button').cloneNode(true)
+// console.log(y)
+
+
+//createTextNode() => creates a text ndoe. 1 arrg:  the text to be added to the text node.
+let textNode = document.createTextNode('Created using createTextNode()');
+document.querySelector('#dom-definition').appendChild(textNode);
+
+
+
+
+
+
+//REMOVING ELEMS FROM THE DOM:
+
+//removeChild() => reomves an element. Takes 1 arrg; the element to be removed.
+
+document.body.removeChild(document.querySelector('#new-bnt'));
+
+//can also use the innerHTML property to set the value of an element to an empty string.
+
+// document.querySelector('class or id'),innerHTML = ''
+
