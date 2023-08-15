@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>Browser Events</title>
+  </head>
+  <body>
+    <h1>Working with Browser Events</h1>
+    <p>Click the button below to trigger a browser event.</p>
+    <button id="click-me-btn">Click Me!</button>
+
+    <form id="name-form">
+        <label for="name">Name:</label>
+        <input type="text" id="name"> <br>
+        <label for="email">Email: </label>
+        <input type="email" name="email" id="loginMail"> <br>
+        <input type="submit" value="Submit">
+    </form>
+  </body>
+  <script>
+
+    const button = document.querySelector('#click-me-btn')
+
+    // button.addEventListener('click', () => {
+    //     alert('I have been clicked!')
+    // })
+
+    //EVENT OBJECT PROPS AND METHODS.
+    //the event {} obj contains all the info abt the event that occurred. 
+
+
+    //target prop => returns the elem that the event occurs on.
+    button.addEventListener('click', (event) => {
+        console.log(event.target)
+        console.log(event.type)
+    })
+    //type => returns the type of the event thta occurred such click or submit
+    // console.log(event.type)
+
+
+    //currentTarget prop => returns the elem the event listener is attached to, not necessarily where it occurs.
+
+    //event bubbling => a mechanismthat allows an event to propagate or "bubble" up to its parent elems.
+    document.body.addEventListener('click', (event) => {
+        console.log(event.currentTarget) // the event occurs in the button but attached to the body.
+    })
+
+
+    //stopPropagation() => prevents the event from bubbling up to parent elems.
+
+    button.addEventListener('click', (event) => {
+        event.stopPropagation();
+    })
+
+
+
+
+    //key prop => returns the value of the key that was pressed or released when a keyboard event occurs.
+    document.body.addEventListener('keydown', (event) => {
+        // console.log(event.keyg) // prints the key pressed.
+    })
+
+
+    //preventDefault() => prevents the default behaviour of an event from being exec.
+
+    const form = document.querySelector('#name-form');
+    form.addEventListener('submit', (event) => {
+        event.preventDefault()
+        console.log(event.target.name.value);
+        console.log(event.target.email.value)
+    })
+
+
+    window.addEventListener('load', () => {
+        console.log('page reloaded!');
+    });
+
+
+    // window.addEventListener('resize', () => {
+    //     console.log(window.innerHeight);
+    //     console.log(window.innerWidth)
+    // });
+
+    
+  </script>
+</html>
