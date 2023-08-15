@@ -9,4 +9,75 @@
     
     
 </body>
+<script>
+    //cookies => small pieces of data that are stored on a users's computer by the we browser. for use ie in shopping carts, record user's browsing
+    // activity and store info to persists btwn page requests.
+
+
+    document.cookie = 'name = Jake; expires = Friday, 17 Aug 2035 12:00 U\TC; path=/';
+
+    document.cookie = 'fav_language = JavaScript'
+
+    // console.log(document.cookie)
+
+
+    //LocalStorage and SessiomStorage => have larger storage capacity.
+    // localStorage has no expiration so data persists even when browser is closed.
+    //getItem() => retrieves items from localStorage
+    //setItem() => sets the data
+
+    localStorage.setItem('username', 'jakemaunda'); // stores
+
+    const username = localStorage.getItem('username'); //gets the username val
+    // console.log(username)
+    // console.log(localStorage);
+
+
+    // storing arrays in localStorage()
+    const names = [
+        'nishoyo_metii',
+        'patel_gapur',
+        'angry_tortoise',
+        'blushing_seal',
+        'rare_occurrence',
+    ];
+
+    localStorage.setItem('usernames', names);// converts array to string
+
+    const getNames = localStorage.getItem('usernames');
+    // console.log(getNames)
+
+    const namesToArray = getNames.split(',')
+    // console.log(namesToArray) // convert back to array
+
+
+    //storing Objects => first convert object to string representation using JSON.stringify();
+    const user = {
+        username : 'maunda_x',
+        fav_food : 'Ugali',
+        age : 23,
+        gender : 'Male',
+        location : 'Nairobi',
+    }
+    localStorage.setItem('user', JSON.stringify(user));
+    //to retrieve back, we convert back the string to an object using JSON.parse()
+
+    const storedUser = localStorage.getItem('user');
+    const storedObject = JSON.parse(storedUser);
+
+    // console.log(storedObject);
+
+    //removeitem() => removes an item. takes key as arrg and removes the key-value pair from localStorage.
+    localStorage.removeItem('username');
+    // console.log(localStorage.getItem('username'));
+
+    //clearing localStorage => use localStorage.clear() method.
+    localStorage.clear();
+    console.log(localStorage)
+
+
+
+    // SessionStorage stores data only for only one session.
+    // works the in terms of getting , setting, removing data from storage
+</script>
 </html>
